@@ -5,6 +5,12 @@
     <title>
         <%= title %>
     </title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
@@ -14,6 +20,27 @@
     </h1>
     <p>Welcome to<%= title %>
     </p>
+    <button onclick="setupexplorer()">xxxx</button>
 </body>
+
+<script>
+    function setupexplorer() {
+        $.ajaxSetup({
+            headers: {
+                'Authorization': 'bearer G(LsNMYQxwthtlPATlMG9zWWTmzqnzcNuK6fQeo86o0KzNSdoF2kMFReYcJ2KwTCpq8QfxXKL00BqUe7Jt4TJtW=====2',
+                'Accept-Language': 'th'
+            }
+        });
+        api = "https://tatapi.tourismthailand.org/tatapi/v5/places/search?categories=" + "อาหาร";
+
+        const decodeurl = decodeURIComponent(api);
+
+        $.getJSON(decodeurl, function (json) {
+
+            console.log(json)
+        })
+    }
+
+</script>
 
 </html>
